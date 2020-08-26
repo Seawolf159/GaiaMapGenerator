@@ -991,7 +991,7 @@ class Map(object):
     def is_valid_map(self):
         """
         Function that checks various validity parameters for a map
-        This is a merged version of other such functions that was defined earliser
+        This is a merged version of other such functions that was defined earlier
         Merged them so that we have to iterate through the map fewer times
         """
         planet_type_edge_count = {"Br": 0,
@@ -1697,15 +1697,15 @@ Search for maps with large average cluster sizes"""
 (Illegal maps are rejected during the search).
 A legal map follow all the limitations given by
     - Maximum cluster size allowed
-    - Minimum distance between equal planets 
+    - Minimum distance between equal planets
       (not Gaia or Trans Dimentional)
     - Maximum number of edge planets allowed for a planet type
-NOTE: if you have too strong restrictions you might make an infinite loop where it is never able to find a legal map. 
+NOTE: if you have too strong restrictions you might make an infinite loop where it is never able to find a legal map.
 It gives up after 20 000 illegal maps."""
         event.GetEventObject().SetToolTip(string)
 
     def onMouseOver_clusters(self, event):
-        string = """How many planets can be in one cluster 
+        string = """How many planets can be in one cluster
 (directly in contact with each other)"""
         event.GetEventObject().SetToolTip(string)
 
@@ -2165,8 +2165,8 @@ class AdvancedSettings(wx.Frame):
         happy_header.SetFont(header_font)
         vsizer_settings.Add(happy_header, 0, wx.EXPAND | wx.ALL, 10)
 
-        txt = """This method loops over the planets and sums up the 
-neighbour quality of each planet type. The goal is that each 
+        txt = """This method loops over the planets and sums up the
+neighbour quality of each planet type. The goal is that each
 planet type has a similar quality of its neighbours"""
         text = wx.StaticText(self, 0, txt)
 
@@ -2374,12 +2374,12 @@ based on planet density, planet type or both."""
         event.GetEventObject().SetToolTip(string)
 
     def onMouseOver_density(self, event):
-        string = """How bad it is to differ from optimal value. A lower number gives 
+        string = """How bad it is to differ from optimal value. A lower number gives
    a smaller punishement for having a value outside the optimal."""
         event.GetEventObject().SetToolTip(string)
 
     def onMouseOver_type(self, event):
-        string = """How bad it is to differ from optimal value. A lower number gives 
+        string = """How bad it is to differ from optimal value. A lower number gives
    a smaller punishement for having a value outside the optimal."""
         event.GetEventObject().SetToolTip(string)
 
