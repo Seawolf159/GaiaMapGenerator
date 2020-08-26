@@ -599,14 +599,14 @@ class Map(object):
     def set_map(self):
         index = 0
         # default_sector_rotation = 0
-        print "\n---------------------------------------------\n"
+        print ("\n---------------------------------------------\n")
 
         if self.num_players == 2:
             if self.layout_type_2p == 6:
                 """
                   type 6: 2-2-2: 1, 2, 3, 4, 9, 10
                 """
-                print "Setting up 2-2-2 map for 2 players"
+                print ("Setting up 2-2-2 map for 2 players")
                 smallest = ["9", "1", "2", "3", "4", "10"]
                 self.map = [["A", "B"], ["C", "D"], ["E", "F"]]
                 self.centre = [[(6, 6), (11, 7)],
@@ -629,7 +629,7 @@ class Map(object):
                   type 3: sectors 1, 3, 4, 5, 6_, 7, 9
                   type 4: sectors 1, 3, 4, 5, 7_, 9, 10
                 """
-                print "Setting up 2-3-2 map for 2 players"
+                print ("Setting up 2-3-2 map for 2 players")
                 small = ["1", "5_", "2", "3", "6_", "4", "7_"]
                 reminding_sectors = ["5_", "6_", "7_"]
                 if self.layout_type_2p == 1:
@@ -678,7 +678,7 @@ class Map(object):
                 self.content = small
 
         elif self.num_players == 4 or self.layout_type_3p == 0:
-            print "Setting up 3-4-3 map for 3/4 players"
+            print ("Setting up 3-4-3 map for 3/4 players")
             Large = ["10", "1", "5", "9", "2", "3", "6", "8", "4", "7"]
             self.map = [["A", "B", "C"], ["D", "E", "F", "G"], ["H", "I", "J"]]
             self.centre = [[(6, 6), (11, 7), (16, 8)],
@@ -706,19 +706,19 @@ class Map(object):
                 """
                 Medium_123 = ["7", "1", "5", "2", "3", "8", "4", "6"]
                 if self.layout_type_3p == 1:
-                    print "Setting up 2-3-3 map for 3 players"
+                    print ("Setting up 2-3-3 map for 3 players")
                     self.map = [["A", "B"], ["C", "D", "E"], ["F", "G", "H"]]
                     self.centre = [[(6, 6), (11, 7)],
                                    [(3, 13), (8, 14), (13, 15)],
                                    [(5, 21), (10, 22), (15, 23)]]
                 elif self.layout_type_3p == 2:
-                    print "Setting up 3-2-3 map for 3 players"
+                    print ("Setting up 3-2-3 map for 3 players")
                     self.map = [["A", "B", "C"], ["D", "E"], ["F", "G", "H"]]
                     self.centre = [[(6, 6), (11, 7), (16, 8)],
                                    [(8, 14), (13, 15)],
                                    [(5, 21), (10, 22), (15, 23)]]
                 else:
-                    print "Setting up 3-3-2 map for 3 players"
+                    print ("Setting up 3-3-2 map for 3 players")
                     self.map = [["A", "B", "C"], ["D", "E", "F"], ["G", "H"]]
                     self.centre = [[(6, 6), (11, 7), (16, 8)],
                                    [(8, 14), (13, 15), (18, 16)],
@@ -738,7 +738,7 @@ class Map(object):
                 """
                   type 4: 3-3-3, hex 1, 2, 3, 4, 5_, 6_, 7_, 9, 10
                 """
-                print "Setting up 3-3-3 map for 3 players"
+                print ("Setting up 3-3-3 map for 3 players")
                 Medium_4 = ["7_", "1", "5_", "9", "2", "3", "10", "4", "6_"]
                 self.map = [["A", "B", "C"], ["D", "E", "F"], ["G", "H", "I"]]
                 self.centre = [[(6, 6), (11, 7), (16, 8)],
@@ -760,7 +760,7 @@ class Map(object):
                 """
                   type 5: 3-3-3, hex 1, 2, 3, 5_, 6, 7, 8, 9, 10
                 """
-                print "Setting up 3-3-3 map for 3 players"
+                print ("Setting up 3-3-3 map for 3 players")
                 Medium_5 = ["5_", "1", "6", "7", "2", "3", "8", "9", "10"]
                 self.map = [["A", "B", "C"], ["D", "E", "F"], ["G", "H", "I"]]
                 self.centre = [[(6, 6), (11, 7), (16, 8)],
@@ -798,7 +798,7 @@ class Map(object):
                 position = self.centre[j][i]
 
                 if print_stuff:
-                    print "generating full map, sector at col=" + str(j) + ", row=" + str(i) + " has content ", content
+                    print ("generating full map, sector at col=" + str(j) + ", row=" + str(i) + " has content ", content)
 
                 for radii, planet_list in enumerate(content):
                     planet_coord_list = get_hexes_at_radius(position[0], position[1], radii)
@@ -830,22 +830,22 @@ class Map(object):
         self.generate_full_map(print_stuff)
 
     def print_map(self):
-        print "---------------------"
+        print ("---------------------")
         n_col = len(self.full_map)
         n_row = len(self.full_map[0])
         for row in range(n_row):
             cont = []
             for col in range(n_col):
                 cont.append(self.full_map[col][row])
-            print cont
-        print "---------------------"
+            print (cont)
+        print ("---------------------")
 
     def make_image_map(self, clockwise=True):
         """
         sector list = [(sector, rotation)]
         """
         sector_list = self.get_printable_map_data()
-        # print sector_list
+        # print (sector_list)
 
 
         max_row_width = len(sector_list[0])
@@ -985,7 +985,7 @@ class Map(object):
                     keep_looking = False
                     self.rejection_count_exceeded = True
         #if self.debug_level == 1:
-        #    print n_iter
+        #    print (n_iter)
         self.rejected_maps += n_iter
 
     def is_valid_map(self):
@@ -1042,8 +1042,8 @@ class Map(object):
 
                     if cluster_sizes[n_clusters - 1] > self.maximum_cluster_size:
                         #if self.debug_level == 2:
-                        #    print "invalid map, cluster size >= ", self.maximum_cluster_size + 1
-                        #    print self.get_printable_map_data()
+                        #    print ("invalid map, cluster size >= ", self.maximum_cluster_size + 1)
+                        #    print (self.get_printable_map_data())
                         return False
 
                     # check if planet has equal neighbour inside max range, or is an edge planet:
@@ -1054,16 +1054,16 @@ class Map(object):
                                                                             self.minimal_equal_range - 1)
                         if planet_data[0]:  # it has equal neighbour
                             #if self.debug_level == 2:
-                            #    print "invalid map, has equal neighbour ", self.full_map[planet_col][planet_row]
-                            #    print self.get_printable_map_data()
+                            #    print ("invalid map, has equal neighbour ", self.full_map[planet_col][planet_row])
+                            #    print (self.get_printable_map_data())
                             return False
                         if planet_data[1]:  # it is an edge planet
                             planet_type = self.full_map[planet_col][planet_row]
                             planet_type_edge_count[planet_type] += 1
                             if planet_type_edge_count[planet_type] > self.maximum_edge_planets:
                                 #if self.debug_level == 2:
-                                #    print "invalid map, edge planets ", planet_type, planet_type_edge_count
-                                #    print self.get_printable_map_data()
+                                #    print ("invalid map, edge planets ", planet_type, planet_type_edge_count)
+                                #    print (self.get_printable_map_data())
                                 return False
 
                     # check outwards for neighbour planets:
@@ -1081,8 +1081,8 @@ class Map(object):
                             continue
                         cluster_planets.append(neighbour_hexes[hex_id])
         #if self.debug_level >= 2:
-        #    print "VALID MAP! n_clusters =", n_clusters, ", n_planets = ", n_planets
-        #    print self.get_printable_map_data()
+        #    print ("VALID MAP! n_clusters =", n_clusters, ", n_planets = ", n_planets)
+        #    print (self.get_printable_map_data())
         return True
 
     def calculate_balance(self, print_happiness=0):
@@ -1099,22 +1099,22 @@ class Map(object):
                                                      self.range_factor)
             stats = get_stats(planet_happiness)
             if print_happiness != 0:
-                print "Color Happiness:"
+                print ("Color Happiness:")
                 for i in range(7):
                     if color_wheel[i] == "Bk":
-                        print " Grey   - {:04.2f}".format(planet_happiness[i])
+                        print (" Grey   - {:04.2f}".format(planet_happiness[i]))
                     if color_wheel[i] == "Br":
-                        print " Brown  - {:04.2f}".format(planet_happiness[i])
+                        print (" Brown  - {:04.2f}".format(planet_happiness[i]))
                     if color_wheel[i] == "Ye":
-                        print " Yellow - {:04.2f}".format(planet_happiness[i])
+                        print (" Yellow - {:04.2f}".format(planet_happiness[i]))
                     if color_wheel[i] == "Or":
-                        print " Orange - {:04.2f}".format(planet_happiness[i])
+                        print (" Orange - {:04.2f}".format(planet_happiness[i]))
                     if color_wheel[i] == "Re":
-                        print " Red    - {:04.2f}".format(planet_happiness[i])
+                        print (" Red    - {:04.2f}".format(planet_happiness[i]))
                     if color_wheel[i] == "Bl":
-                        print " Blue   - {:04.2f}".format(planet_happiness[i])
+                        print (" Blue   - {:04.2f}".format(planet_happiness[i]))
                     if color_wheel[i] == "Wh":
-                        print " White  - {:04.2f}".format(planet_happiness[i])
+                        print (" White  - {:04.2f}".format(planet_happiness[i]))
                 stat_string = "Stats: "
                 for i in range(4):
                     if i == 0:
@@ -1125,13 +1125,13 @@ class Map(object):
                         stat_string += ", Min = {:04.2f}".format(stats[i])
                     if i == 3:
                         stat_string += ", Max = {:04.2f}".format(stats[i])
-                print stat_string
+                print (stat_string)
             return stats[1]
         if self.method == 1:
             '''Optimize for even distribution of planets/planet types'''
             hp = calc_map_happiness(self.full_map, self.NW, self.PD_SC, self.TR_SC, self.search_radius)[0]
             if print_happiness != 0:
-                print "Happiness = {:04.2f}".format(hp)
+                print ("Happiness = {:04.2f}".format(hp))
             return hp
         if self.method == 2:
             '''Optimize for big clusters!'''
@@ -1139,8 +1139,8 @@ class Map(object):
             stats = get_stats(cluster_sizes)
             avg_size = stats[0]
             if print_happiness != 0:
-                print cluster_sizes
-                print stats
+                print (cluster_sizes)
+                print (stats)
             return avg_size
         if self.method == 3:
             '''Optimize for bigger largest cluster'''
@@ -1148,8 +1148,8 @@ class Map(object):
             stats = get_stats(cluster_sizes)
             largest_size = stats[3]
             if print_happiness != 0:
-                print cluster_sizes
-                print stats
+                print (cluster_sizes)
+                print (stats)
             return largest_size
 
     def is_better_balance(self, balance):
@@ -1164,27 +1164,27 @@ class Map(object):
             return balance > self.best_balance
 
     def balance_map(self, print_progress_func=None, break_received_func=None):
-        print "Starting new search for map! Parameters:"
-        print "n_players = ", self.num_players
-        print "n_iterations = ", self.try_count
-        print "max_cluster_size = ", self.maximum_cluster_size
-        print "max_edge_planets = ", self.maximum_edge_planets
-        print "min_equal_dist   = ", self.minimal_equal_range
+        print ("Starting new search for map! Parameters:")
+        print ("n_players = ", self.num_players)
+        print ("n_iterations = ", self.try_count)
+        print ("max_cluster_size = ", self.maximum_cluster_size)
+        print ("max_edge_planets = ", self.maximum_edge_planets)
+        print ("min_equal_dist   = ", self.minimal_equal_range)
         if self.method == 0:
-            print "method        = Planet Happiness"
-            print "search radius = ", self.search_radius
-            print "terra_param   = ", self.terraform_param
-            print "gaia_param    = ", self.gaia_param
-            print "trans_param   = ", self.trans_param
-            print "range_factor  = ", self.range_factor
+            print ("method        = Planet Happiness")
+            print ("search radius = ", self.search_radius)
+            print ("terra_param   = ", self.terraform_param)
+            print ("gaia_param    = ", self.gaia_param)
+            print ("trans_param   = ", self.trans_param)
+            print ("range_factor  = ", self.range_factor)
         elif self.method == 1:
-            print "method        = Planet Type Distribution"
-            print "search radius = ", self.search_radius
-            print "type_weight   = ", self.NW
-            print "dens dropoff  = ", self.PD_SC
-            print "type dropoff  = ", self.TR_SC
+            print ("method        = Planet Type Distribution")
+            print ("search radius = ", self.search_radius)
+            print ("type_weight   = ", self.NW)
+            print ("dens dropoff  = ", self.PD_SC)
+            print ("type dropoff  = ", self.TR_SC)
         elif self.method == 2:
-            print "method = Larger Avarage Cluster Size"
+            print ("method = Larger Avarage Cluster Size")
         self.reset_best_map_value()
         self.best_map_data = self.get_printable_map_data()
         progress = 0
@@ -1203,10 +1203,10 @@ class Map(object):
                     self.best_balance = balance
                     self.best_map_data = self.get_printable_map_data()
                     self.set_map_by_map_data(self.best_map_data)
-                    print "new best map: ", self.best_map_data
-                    print "score: ", self.best_balance
-                    # print "it is valid: ", self.is_valid_map()
-                    # print "Full Map:"
+                    print ("new best map: ", self.best_map_data)
+                    print ("score: ", self.best_balance)
+                    # print ("it is valid: ", self.is_valid_map())
+                    # print ("Full Map:")
                     # self.print_map()
             if self.rejection_count_exceeded:
                 if print_progress_func is not None:
@@ -1227,9 +1227,9 @@ class Map(object):
         return self.best_map_data
 
     def set_to_balanced_map(self):
-        # print "set to best map A: ", self.best_map_data
+        # print ("set to best map A: ", self.best_map_data)
         self.set_map_by_map_data(self.best_map_data)
-        # print "set to best map B: ", self.get_printable_map_data()
+        # print ("set to best map B: ", self.get_printable_map_data())
 
     def reset_best_map_value(self):
         if self.is_better_balance(-1.0):
