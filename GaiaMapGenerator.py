@@ -1258,10 +1258,12 @@ class Sector(object):
         self.rotation = 0
         self.ID = ID
 
-        self.relative_coordinates = [[(0, 0)],
-                                     [(0, +2), (+1, -1), (+1, +1), (+0, -2), (-1, +1), (-1, -1)],
-                                     [(-0, -4), (+1, -3), (+2, -2), (+2, -0), (+2, +2), (+1, +3), (0, +4), (-1, +3),
-                                      (-2, +2), (-2, 0), (-2, -2), (-1, -3)]]
+        self.relative_coordinates = [
+            [(0, 0)],
+            [(0, +2), (+1, -1), (+1, +1), (+0, -2), (-1, +1), (-1, -1)],
+            [(-0, -4), (+1, -3), (+2, -2), (+2, -0), (+2, +2), (+1, +3),
+            (0, +4), (-1, +3), (-2, +2), (-2, 0), (-2, -2), (-1, -3)]
+        ]
 
     def rotate_sector(self, num_rotations):
         for i in range(num_rotations):
@@ -1269,11 +1271,11 @@ class Sector(object):
 
     def rotate_sector_once(self):
         original_sector = copy.deepcopy(self.content)
-        for i, row in enumerate(content):
-            if i ==  1:
-                content[i] = content[i][-1:] + content[i][:-1]
+        for i in [1, 2]:
+            if i == 1:
+                self.content[i] = self.content[i][-1:] + self.content[i][:-1]
             if i == 2:
-                content[i] = content[i][-2:] + content[i][:-2]
+                self.content[i] = self.content[i][-2:] + self.content[i][:-2]
 
         self.rotation += 1
         if self.rotation == 6:
