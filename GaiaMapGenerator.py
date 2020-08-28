@@ -1269,12 +1269,12 @@ class Sector(object):
 
     def rotate_sector_once(self):
         original_sector = copy.deepcopy(self.content)
-        for j, row in enumerate(self.content):
-            if j == 0:
-                pass
-            else:
-                for i, item in enumerate(row):
-                    self.content[j][(i + j) % (6 * j)] = original_sector[j][i]
+        for i, row in enumerate(content):
+            if i ==  1:
+                content[i] = content[i][-1:] + content[i][:-1]
+            if i == 2:
+                content[i] = content[i][-2:] + content[i][:-2]
+
         self.rotation += 1
         if self.rotation == 6:
             self.rotation = 0
