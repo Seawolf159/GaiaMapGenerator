@@ -1270,7 +1270,6 @@ class Sector(object):
             self.rotate_sector_once()
 
     def rotate_sector_once(self):
-        original_sector = copy.deepcopy(self.content)
         for i in [1, 2]:
             if i == 1:
                 self.content[i] = self.content[i][-1:] + self.content[i][:-1]
