@@ -1270,11 +1270,8 @@ class Sector(object):
             self.rotate_sector_once()
 
     def rotate_sector_once(self):
-        for i in [1, 2]:
-            if i == 1:
-                self.content[i] = self.content[i][-1:] + self.content[i][:-1]
-            if i == 2:
-                self.content[i] = self.content[i][-2:] + self.content[i][:-2]
+        self.content[1] = self.content[1][-1:] + self.content[1][:-1]
+        self.content[2] = self.content[2][-2:] + self.content[2][:-2]
 
         self.rotation += 1
         if self.rotation == 6:
